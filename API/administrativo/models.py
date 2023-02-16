@@ -94,5 +94,6 @@ class Tramite(models.Model):
 class Tramitante(Persona):
     carrera=models.ManyToManyField(Carrera,verbose_name="Carrera")
 
-class PedidoTramite(models.Model):
+class PedidoTramite(Persona):
     tramite=models.OneToOneField(Tramite,verbose_name="Tramite",on_delete=models.RESTRICT)
+    descripcion=models.TextField(verbose_name="Motivo Del Pedido",blank=True, null=True)

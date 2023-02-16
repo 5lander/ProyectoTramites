@@ -35,10 +35,24 @@ class Tramite_APIView_Detalles(APIView):
         serializer= TramiteSerializers(tramite)
         return Response(serializer.data)
 
-    def put(self,request,id_tramite, format=None):
-        tramite=self.get_object(id_tramite)
-        serializer= TramiteSerializers(tramite,data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    def post(self,request,format=None, *args,**kwargs):
+            print(request.data)
+            data ={
+                'nombres':request.data.get('nombres'),
+                'apellidos':request.data.get('apellidos'),
+                'cedula':request.data.get('cedula'),
+                'celular':request.data.get('celular'),
+                'nacionalidad':request.data.get('nacionalidad'),
+                'correo':request.data.get('correo'),
+                'edad':request.data.get('edad'),
+                'descripcion':request.data.get('descripcion'),
+                'tramite':request.data.get('tramite'),
+            }
+            print(data)
+            
+            serializer=TramiteSerializers(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+            return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)    

@@ -1,0 +1,22 @@
+.contenedorTramites{
+    height: 100%;
+    display: flex;
+    margin-top: 3em;
+    gap: 10px 10px;
+    margin-bottom: 3em;
+    margin-left: auto;
+    align-items: center;
+    width: 90%;
+    .organizador{
+        align-self: center;
+        align-content: center;
+        gap: 25px 1px;
+    }
+    .organizadortarjeta{
+        height: 250px;
+        
+    }
+    .descripcion{
+        text-align: left;
+    }
+}

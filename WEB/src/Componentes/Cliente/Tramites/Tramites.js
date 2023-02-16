@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import './Tramites.scss'
-import {Grid,Card,Icon,Image} from 'semantic-ui-react'
+import {Grid,Card,Icon} from 'semantic-ui-react'
 
 
 export function Tramites() {
